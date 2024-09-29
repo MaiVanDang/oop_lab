@@ -1,0 +1,55 @@
+package test4;
+import java.util.Scanner;
+public class PrintDate {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int yearInput, Date;
+		String monthInput;
+		while(true) {
+			System.out.print("Scan year: ");
+			yearInput = scanner.nextInt();
+			if(yearInput < 0) {
+				System.out.println("Invalid year. Please try again!");
+				continue;
+			}
+			System.out.print("Scan month: ");
+			monthInput = scanner.nextLine();
+			//check month 
+			if (monthInput == "January" || monthInput == "Jan." || monthInput == "Jan" || monthInput == "1" ||
+				monthInput == "March"   || monthInput == "Mar." || monthInput == "Mar" || monthInput == "3" ||
+				monthInput == "May"     || monthInput == "May." || monthInput == "May" || monthInput == "5" ||
+				monthInput == "July"    || monthInput == "Jul." || monthInput == "Jul" || monthInput == "7" ||
+				monthInput == "August"  || monthInput == "Aug." || monthInput == "Aug" || monthInput == "8" ||
+				monthInput == "October" || monthInput == "Oct." || monthInput == "Oct" || monthInput == "10"||
+				monthInput == "December"|| monthInput == "Dec." || monthInput == "Dec" || monthInput == "12") {
+					Date = 31;
+					break;
+			}
+			else if(monthInput == "April"     || monthInput == "Apr." || monthInput == "Apr" || monthInput == "4" ||
+					monthInput == "June"      || monthInput == "Jun." || monthInput == "Jun" || monthInput == "6" ||
+					monthInput == "September" || monthInput == "Sep." || monthInput == "Sep" || monthInput == "9" ||
+					monthInput == "November"  || monthInput == "Nov." || monthInput == "Nov" || monthInput == "11"){
+						Date = 30;
+						break;
+			}	
+			else if(monthInput == "February"  || monthInput == "Feb." || monthInput == "Feb" || monthInput == "2") {
+				 	if ((yearInput % 4 == 0 && yearInput % 100 != 0) || (yearInput % 400 == 0)) {
+				 		Date = 29;
+				 		break;
+				 	}
+						
+					else {
+						Date = 28;
+						break;
+					}
+						
+				}
+			else System.out.println("Invalid moth. Please try again!");
+					
+		}
+		
+		System.out.println("The number of days in " + monthInput + " " + yearInput + " is " + Date + ".");
+		
+	}
+	
+}
