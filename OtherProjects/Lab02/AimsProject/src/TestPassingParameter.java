@@ -17,9 +17,14 @@ public class TestPassingParameter {
 		o2 = tmp;
 	}
 
+	public static void swap() {
+		
+	}
+	
 	public static void changeTitle(DigitalVideoDisc dvd, String title) {
 		String oldTitle = dvd.getTitle();
 		dvd.setTitle(title);
 		dvd = new DigitalVideoDisc(oldTitle);
 	}
+	
 }
