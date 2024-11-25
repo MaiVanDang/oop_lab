@@ -47,7 +47,7 @@ public class Cart {
                     return;
                 }
     		} else {
-    			System.out.println("The cart is full! Cannot add more items.");
+    			System.out.println("The cart is full!Cannot add more items.");
     			return;
     		}
     	}
