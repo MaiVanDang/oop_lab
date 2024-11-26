@@ -1,1 +1,0 @@
-Nếu người dùng chọn "Hủy" trong JOptionPane.showConfirmDialog, biến option sẽ được đặt thành JOptionPane.CANCEL_OPTION. Điều này có nghĩa là thông báo hiển thị sẽ chỉ ra rằng người dùng đã chọn "Không" vì điều kiện chỉ kiểm tra để YES_OPTION hiển thị "Có". Do đó, chương trình sẽ xử lý "Hủy" như thể người dùng đã chọn "Không".
