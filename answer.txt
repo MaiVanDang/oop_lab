@@ -1,0 +1,26 @@
+2.
+So sánh giữa mảng và varargs:
++ Mảng: Cần thiết khi bạn đã có một mảng các đối tượng DVD từ trước.
++ Varargs: Linh hoạt hơn, giúp người dùng truyền bao nhiêu tham số tùy ý mà không cần tạo mảng trước. Ưu tiên sử dụng varargs vì tính tiện lợi và dễ đọc.
+3.
+- Is JAVA a Pass by Value or a Pass by Reference programming language?
+Pass by Value: Giá trị của tham số được sao chép sang một biến khác, và bản sao đó được truyền vào phương thức. Vì vậy, bất kỳ thay đổi nào trong phương thức đều không ảnh hưởng đến giá trị gốc.
+Pass by Reference: Tham chiếu đến tham số thực tế được truyền vào phương thức, nên bất kỳ thay đổi nào trong phương thức sẽ ảnh hưởng trực tiếp đến tham số gốc.
+- After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
++ Java truyền tham số theo giá trị (Pass by Value). Ở đây, giá trị là tham chiếu (reference) đến đối tượng. Khi thực hiện swap(), các tham chiếu được hoán đổi cục bộ trong phương thức, nhưng không ảnh hưởng đến tham chiếu gốc bên ngoài.
++ Khi truyền tham số jungleDVD vào phương thức changeTitle, giá trị của tham chiếu đến đối tượng được truyền. Mặc dù tham số này được sao chép, phương thức có thể thay đổi nội dung của đối tượng mà tham chiếu trỏ đến (ở đây là thay đổi title của jungleDVD).
+- Cách giải quyết swap
+Sử dụng một mảng để hoán đổi tham chiếu thực tế.
+
+    public static void swap(DigitalVideoDisc[] dvds){
+        if(dvds.length == 2){
+            DigitalVideoDisc temp = dvds[0];
+            dvds[0] = dvds[1];
+            dvds[1] temp;
+        }
+    }
+
+-> Java là ngôn ngữ Pass by Value, ngay cả khi làm việc với tham chiếu đối tượng. Tham chiếu được sao chép và truyền vào phương thức, nhưng không thay đổi tham chiếu gốc.
+-> Để hoán đổi hai đối tượng thực sự, cần sử dụng cấu trúc bên ngoài (như mảng) để thay đổi tham chiếu thực tế.
+6.
+Phương thức toString() cho lớp DigitalVideoDisc nên để kiểu trả về là String
