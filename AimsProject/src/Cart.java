@@ -99,11 +99,23 @@ public class Cart {
     }
 
     // Phương thức in danh sách đĩa video trong giỏ hàng
-    public void printCart() {
-        System.out.println("Items in the cart:");
-        for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println("- " + itemsOrdered[i].getTitle() + " (Cost: " + itemsOrdered[i].getCost() + ")");
-        }
-        System.out.println("Total Cost: " + totalCost());
+//    public void printCart() {
+//        System.out.println("Items in the cart:");
+//        for (int i = 0; i < qtyOrdered; i++) {
+//            System.out.println("- " + itemsOrdered[i].getTitle() + " (Cost: " + itemsOrdered[i].getCost() + ")");
+//        }
+//        System.out.println("Total Cost: " + totalCost());
+//    }
+    
+    public void print()
+    {
+    	System.out.println("**************************CART***********************");
+    	System.out.println("Ordered Items:");
+    	for (int i = 0; i < qtyOrdered; i++)
+    	{
+    		System.out.println(itemsOrdered[i]);
+    	}
+    	System.out.println("Total cost: " + totalCost());
+    	System.out.println("*****************************************************");
     }
 }
