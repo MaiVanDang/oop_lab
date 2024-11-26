@@ -11,15 +11,6 @@ Pass by Reference: Tham chiếu đến tham số thực tế được truyền v
 + Khi truyền tham số jungleDVD vào phương thức changeTitle, giá trị của tham chiếu đến đối tượng được truyền. Mặc dù tham số này được sao chép, phương thức có thể thay đổi nội dung của đối tượng mà tham chiếu trỏ đến (ở đây là thay đổi title của jungleDVD).
 - Cách giải quyết swap
 Sử dụng một mảng để hoán đổi tham chiếu thực tế.
-
-    public static void swap(DigitalVideoDisc[] dvds){
-        if(dvds.length == 2){
-            DigitalVideoDisc temp = dvds[0];
-            dvds[0] = dvds[1];
-            dvds[1] temp;
-        }
-    }
-
 -> Java là ngôn ngữ Pass by Value, ngay cả khi làm việc với tham chiếu đối tượng. Tham chiếu được sao chép và truyền vào phương thức, nhưng không thay đổi tham chiếu gốc.
 -> Để hoán đổi hai đối tượng thực sự, cần sử dụng cấu trúc bên ngoài (như mảng) để thay đổi tham chiếu thực tế.
 6.
