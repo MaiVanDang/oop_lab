@@ -118,4 +118,40 @@ public class Cart {
     	System.out.println("Total cost: " + totalCost());
     	System.out.println("*****************************************************");
     }
+    
+    public void searchByID(int id)
+    {
+    	boolean found = false;
+    	for (int i = 0; i < qtyOrdered; i++)
+    	{
+    		if (itemsOrdered[i].getId() == id)
+    		{
+    			System.out.println("Found" + itemsOrdered[i]);
+    			found = true;
+    		}
+    	}
+    	if (found==false)
+    	{
+    		System.out.println("Sorry, no DVDs were found that match the ID provided!");
+    	}
+    }
+    
+    public void searchByTitle(String keyword)
+    {
+    	boolean matchFound = false;
+    	for (int i=0; i < qtyOrdered; i++)
+    	{
+    		if (itemsOrdered[i].isMatch(keyword))
+    		{
+    			System.out.println("Found" + itemsOrdered[i]);
+    			matchFound = true;
+    		}
+    	}
+    	if (matchFound == false)
+    	{
+    		System.out.println("Sorry, no DVDs were found with \"" + keyword +"\" in the title!");
+    	}
+    }
+    
+ 
 }

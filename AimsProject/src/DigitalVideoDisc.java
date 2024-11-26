@@ -16,6 +16,11 @@ public class DigitalVideoDisc {
 		return title;
 	}
 	
+	public boolean isMatch(String keyword)
+	{
+		return this.title.toLowerCase().contains(keyword.toLowerCase());
+	}
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
