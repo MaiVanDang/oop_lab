@@ -1,0 +1,3 @@
+Đây là một tệp test.
+Nó chứa một vài dòng văn bản để thử nghiệm.
+Hy vọng rằng nó sẽ giúp bạn kiểm tra hiệu suất của chương trình Java.
