@@ -64,4 +64,11 @@ public class Media {
 
         return this.title != null ? this.title.equals(other.title) : other.title == null;
     }
+    
+    @Override
+    public String toString() {
+    	return "Media: " + this.getTitle() + 
+    			" - Category: " + this.getCategory() + 
+    			" - Cost: " + this.getCost() + "$";
+    }
 }
