@@ -83,5 +83,45 @@ public class Cart {
     	}
     }
     
- 
+    public void empty() {
+        if (itemsOrdered.size() == 0) {
+            System.out.println("Nothing to remove!");
+        } else {
+            qtyOrdered = 0;
+            itemsOrdered.clear();
+            System.out.println("Order created.");
+            System.out.println("Now your current cart will be empty!");
+            System.out.println();
+        }
+    }
+    
+ // Search to remove
+    public Media searchToRemove(String title) {
+		for (Media media : itemsOrdered) {
+			if (media.getTitle().equals(title)) {
+				return media;
+			}
+		}
+		return null;
+	}
+    
+ // Sort media in cart
+    public void sortMediaByTitle() {
+        Collections.sort((List<Media>)itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        Iterator<Media> iterator = itemsOrdered.iterator();
+        iterator = itemsOrdered.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(((Media)iterator.next()).toString());
+        }
+    }
+    public void sortMediaByCost() {
+        Collections.sort((List<Media>)itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        Iterator<Media> iterator = itemsOrdered.iterator();
+        iterator = itemsOrdered.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(((Media)iterator.next()).toString());
+        }
+    }
 }
