@@ -3,7 +3,7 @@ package hust.soict.hedspi.aims.store;
 import java.util.ArrayList;
 import java.util.List;
 
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 
 public class Store {
 	// List DVDs
