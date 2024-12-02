@@ -49,4 +49,19 @@ public class Media {
     public boolean isMatch(String title) {
         return this.getTitle().toLowerCase().contains(title.toLowerCase());
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+    	if (this == obj) {
+            return true;
+        }
+    	
+        if (!(obj instanceof Media)) {
+            return false;
+        }
+        
+        Media other = (Media) obj;
+
+        return this.title != null ? this.title.equals(other.title) : other.title == null;
+    }
 }
