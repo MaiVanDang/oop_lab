@@ -15,6 +15,7 @@ public class Cart {
     	}else {
     		itemsOrdered.add(media);
     		System.out.println(media.getTitle() + "has been added!");
+    		System.out.println("The number of DVDs in the current cart: " + itemsOrdered.size());
     	}
     }
     
