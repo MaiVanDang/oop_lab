@@ -1,0 +1,22 @@
+9.	Constructors of whole classes and parent classes
+Which classes are aggregates of other classes? 
+--> Lớp Disc là cha của lớp DisgitalVideoDisc và CompactDisc
+--> Lớp Media là cha của lớp Book và 
+10.	Unique item in a list
+If the passing object is not an instance of Media, what happens?
+--> Nếu một đối tượng có kiểu khác kiểu được truyền, phương thức sẽ trả về false. 
+Phép ép kiểu chỉ hoạt động đối với các đối tượng có cùng lớp, ngăn không cho các kiểu con được coi là bằng nhau theo mặc định.
+11.	Polymorphism with toString() method
+--> Khi mã này chạy, phương thức cụ thể của từng đối tượng phương tiện toString()sẽ được gọi, thể hiện hành vi đa hình. 
+Đầu ra sẽ hiển thị các biểu diễn chuỗi khác nhau dựa trên loại thực tế của từng đối tượng phương tiện, mặc dù được lưu trữ trong danh sách loại phương tiện cơ sở.
+12.	Sort media in the cart
+Alternatively, to compare items in the cart, instead of using Comparator, we can use the Comparable interface and override the compareTo()method. You can refer to the Java docs to see the information of this interface. 
+Suppose we are taking this Comparable interface approach.
+-	What class should implement the Comparable interface?
+--> Class Media
+-	In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?
+--> The answer can be found in `src/hust/socit/hedspi/aims/Media.java` file.
+-	Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+-->Không, chúng ta không thể. Giao diện Comparable giả định rằng chỉ có một thứ tự tự nhiên cho các đối tượng đang được so sánh.
+-	Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+-->Chúng ta có thể ghi đè phương thức compareTo trong lớp Disc để phản ánh quy tắc sắp xếp mới.Mã đã sửa đổi có thể được tìm thấy trong tệp `src/hust/soict/hedspi/aims/Disc.java`
