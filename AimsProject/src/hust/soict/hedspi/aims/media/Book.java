@@ -10,6 +10,10 @@ public class Book extends Media {
 		return authors;
 	}
 
+	public void setAuthors(List<String> authors) {
+		this.authors = authors;
+	}
+
 	public Book(String title) {
 		super(title);
 	}
@@ -39,5 +43,11 @@ public class Book extends Media {
 			System.out.println("No author has been found to remove!");
 		}
 	}
-
+	
+	@Override
+    public String toString() {
+        return this.getId() + " - Book: " + this.getTitle() +
+                " - Category: " + this.getCategory() +
+                " - Cost: " + this.getCost() + "$";
+    }
 }
