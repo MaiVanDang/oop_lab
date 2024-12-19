@@ -9,14 +9,13 @@ public class Cart {
     public int qtyOrdered = 0; 
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     
-    public void addMedia(Media media) {
-    	if(itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
-    		System.out.println("The cart is almost full!");
-    	}else {
-    		itemsOrdered.add(media);
-    		System.out.println(media.getTitle() + "has been added!");
-    		System.out.println("The number of DVDs in the current cart: " + itemsOrdered.size());
-    	}
+    public String addMedia(Media media) {
+        if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
+            return "The cart is full! Cannot add more items.";
+        } else {
+            itemsOrdered.add(media);
+            return media.getTitle() + " has been added to the cart.";
+        }
     }
     
     public void removeMedia(Media media) {

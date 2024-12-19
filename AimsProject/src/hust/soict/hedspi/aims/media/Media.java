@@ -59,6 +59,10 @@ public class Media implements Comparable<Media>{
         System.out.println("Playing media");
     }
     
+    public String playGUI() {
+    	return "Playing media";
+    }
+    
     @Override
     public boolean equals(Object obj) {
     	if (this == obj) {

@@ -1,10 +1,11 @@
 package hust.soict.hedspi.test.cart;
+import javax.naming.LimitExceededException;
 
-import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 
 public class CartTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws LimitExceededException {
      
         Cart cart = new Cart();
         
@@ -19,10 +20,14 @@ public class CartTest {
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", 
         		"Animation", 18.99f);
         cart.addMedia(dvd3);
-
+        
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("Aladin",
+        		"Animation", 18.99f);
+        cart.addMedia(dvd4);
+        
         cart.print();
         
         cart.searchByID(3);
-        cart.searchByTitle("Aladin");
+        cart.searchByTitle("Lion");
     }
 }
