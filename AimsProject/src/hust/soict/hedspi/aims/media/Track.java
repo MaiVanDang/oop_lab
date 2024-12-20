@@ -1,7 +1,11 @@
 package hust.soict.hedspi.aims.media;
 
-public class Track implements Playable{
+import java.time.Duration;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
+
+public class Track implements Playable {
+	
 	private String title;
 	private int length;
 	
@@ -17,26 +21,34 @@ public class Track implements Playable{
 		this.title = title;
 		this.length = length;
 	}
-
+	
 	public void play() {
-		System.out.println("Playing DVD: " + this.getTitle());
-		System.out.println("DVD length: " + this.getLength());
+		System.out.println("Playing track: " + this.getTitle());
+		System.out.println("Track length: " + this.getLength());
 	}
+	
+	public String formatDuration(int durationInSeconds) {
+        Duration duration = Duration.ofSeconds(durationInSeconds);
+        return String.format("%02d:%02d", duration.toMinutes(), duration.minusMinutes(duration.toMinutes()).getSeconds());
+    }
+	
+	public String playGUI() throws PlayerException {
+        if (this.getLength() > 0) {
+            return "Playing track: " + this.getTitle() + "\n" + 
+                "Track length: " + formatDuration(this.getLength());
+        } else {
+            throw new PlayerException("ERROR: Track length is non-positive!");
+        }
+    }
 	
 	@Override
 	public boolean equals(Object obj) {
-
-		if (this == obj) {
-            return true;
-        }
-		
-	    if (!(obj instanceof Track)) {
-	        return false;
-	    }
-
-	    Track other = (Track) obj;
-
-	    return (this.title != null ? this.title.equals(other.title) : other.title == null)
-	            && this.length == other.length;
-	}
+		if (obj == this) {
+			return true;
+		}
+		if(!(obj instanceof Track)) {
+			return false;
+		}
+		return ((Track)obj).getTitle() == this.getTitle() && ((Track)obj).getLength() == this.getLength();
+ 	}
 }
