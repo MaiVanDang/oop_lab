@@ -5,6 +5,8 @@ import hust.soict.hedspi.aims.store.Store;
 
 import java.util.*;
 
+import javax.naming.LimitExceededException;
+
 public class Aims {
 	
 	private static Store store = new Store();
@@ -178,7 +180,11 @@ public class Aims {
                         }
                         Media media = store.search(title);
                         if (media != null) {
-                            cart.addMedia(media);
+                        	try {
+                                cart.addMedia(media);
+                            } catch (LimitExceededException e) {
+                                e.printStackTrace();
+                            }
                             foundToAdd = true;
                         } else {
                             System.out.println("***MEDIA NOT FOUND***");
@@ -240,7 +246,11 @@ public class Aims {
                     back = true;
                     break;
                 case 1:
-                    cart.addMedia(media);
+                	try {
+                        cart.addMedia(media);
+                    } catch (LimitExceededException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case 2:
                     if (media instanceof Disc || media instanceof CompactDisc) {
@@ -406,11 +416,6 @@ public class Aims {
                         System.out.println("Enter book category: ");
                         String bookCategory = scanner.nextLine();
                         System.out.println("Enter book cost: ");
-                        while (!scanner.hasNextFloat()) {
-                            System.out.println("Invalid input. Please enter a numeric value for cost.");
-                            System.out.println("EX: 15,2");
-                            scanner.next(); 
-                        }
                         Float bookCost = scanner.nextFloat();
                         scanner.nextLine();
 
@@ -424,11 +429,6 @@ public class Aims {
                         System.out.println("Enter CD artist: ");
                         String cdArtist = scanner.nextLine();
                         System.out.println("Enter CD cost: ");
-                        while (!scanner.hasNextFloat()) {
-                            System.out.println("Invalid input. Please enter a numeric value for cost.");
-                            System.out.println("EX: 15,2");
-                            scanner.next(); 
-                        }
                         Float cdCost = scanner.nextFloat();
                         scanner.nextLine();
 
@@ -464,11 +464,6 @@ public class Aims {
                         System.out.println("Enter DVD category: ");
                         String dvdCategory = scanner.nextLine();
                         System.out.println("Enter book cost: ");
-                        while (!scanner.hasNextFloat()) {
-                            System.out.println("Invalid input. Please enter a numeric value for cost.");
-                            System.out.println("EX: 15,2");
-                            scanner.next(); 
-                        }
                         Float dvdCost = scanner.nextFloat();
                         scanner.nextLine();
                         
@@ -483,7 +478,6 @@ public class Aims {
                     break;
                 case 2:
                     boolean foundToRemove = false;
-                    store.print();
                     while (!foundToRemove) {
                         System.out.println("Enter the title of the media (type 0 to stop): ");
                         String titleForRemove = scanner.nextLine();

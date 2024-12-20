@@ -11,12 +11,12 @@ public class MediaCompareTest {
 		
         List<Media> mediae = new ArrayList<Media>();
 
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
+        DigitalVideoDisc dvd = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star War", "Science Fiction", "George Lucas", 87, 24.95f); 
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
 
 
-        Book book0 = new Book("The Valley of Fear", "Detective", 20.00f);
+        Book book = new Book("The Valley of Fear", "Detective", 20.00f);
         Book book1 = new Book("A Living Remedy: A Memoir", "Biography", 202.00f);
         Book book2 = new Book("On the Origin of Time: Stephen Hawking's Final Theory", "Science", 120.00f);
         Book book3 = new Book("Looking Glass Sound", "Horror", 1.00f);
@@ -32,11 +32,11 @@ public class MediaCompareTest {
         cd.addTrack(track3);
 
         mediae.add(cd);
-        mediae.add(book0);
+        mediae.add(book);
         mediae.add(book1);
         mediae.add(book2);
         mediae.add(book3);
-        mediae.add(dvd1);   
+        mediae.add(dvd);   
         mediae.add(dvd2);     
         mediae.add(dvd3);    
         
